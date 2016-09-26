@@ -36,6 +36,7 @@ class Troco {
 
         public TrocoIterator(Troco troco) {
             this.troco = troco;
+            this.trocoIteratorCount = troco.papeisMoeda.length -1;
         }
 
         @Override
