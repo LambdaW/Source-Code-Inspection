@@ -8,7 +8,6 @@ import java.util.Iterator;
  */
 class Troco {
     
-    private int iterator_count;
     protected PapelMoeda[] papeisMoeda;
 
     public Troco(int valor) {
@@ -41,20 +40,13 @@ class Troco {
 
         @Override
         public boolean hasNext() {
-            for (int i = 6; i >= 0; i++) {
-                if (troco.papeisMoeda[i] != null) {
-                    return true;
-                }
-            }
-            return false;
+           return trocoIteratorCount > 0;
         }
 
         @Override
         public PapelMoeda next() {
-            
             return (hasNext()) ? troco.papeisMoeda[--trocoIteratorCount] : null;
-           
-        }
+         }
 
         @Override
         public void remove() {
