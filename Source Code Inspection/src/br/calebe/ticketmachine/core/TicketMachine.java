@@ -52,8 +52,6 @@ public class TicketMachine {
     }
 
     public String imprimir() {
-       
-        
         StringBuilder result = new StringBuilder( "*****************\n");
         result.append( "*** R$ ").append(saldo).append(",00 ****\n");
         result.append( "*****************\n");
