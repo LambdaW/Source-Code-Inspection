@@ -36,14 +36,17 @@ public class TicketMachine {
         return saldo;
     }
 
-    public Iterator<Integer> getTroco() {
-        return null;
+    public Iterator<PapelMoeda> getTroco() {
+        return new Troco(saldo).getIterator();
     }
 
     public String imprimir() throws SaldoInsuficienteException {
+       
         if (saldo < valor) {
             throw new SaldoInsuficienteException();
         }
+        
+        
         StringBuilder result = new StringBuilder( "*****************\n");
         result.append( "*** R$ ").append(saldo).append(",00 ****\n");
         result.append( "*****************\n");
