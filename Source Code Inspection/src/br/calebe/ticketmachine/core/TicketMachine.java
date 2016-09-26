@@ -46,6 +46,7 @@ public class TicketMachine {
             throw new SaldoInsuficienteException();
         }
         
+        saldo -= valor;
         
         StringBuilder result = new StringBuilder( "*****************\n");
         result.append( "*** R$ ").append(saldo).append(",00 ****\n");
