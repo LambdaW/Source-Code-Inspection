@@ -26,17 +26,15 @@ class Troco {
     }
 
     public Iterator<PapelMoeda> getIterator() {
-        return new TrocoIterator(this);
+        return new TrocoIterator();
     }
 
     class TrocoIterator implements Iterator<PapelMoeda> {
 
         private int trocoIteratorCount;
-        protected Troco troco;
 
-        public TrocoIterator(Troco troco) {
-            this.troco = troco;
-            this.trocoIteratorCount = troco.papeisMoeda.length -1;
+        public TrocoIterator() {
+            this.trocoIteratorCount = papeisMoeda.length -1;
         }
 
         @Override
@@ -46,7 +44,7 @@ class Troco {
 
         @Override
         public PapelMoeda next() {
-            return (hasNext()) ? troco.papeisMoeda[--trocoIteratorCount] : null;
+            return (hasNext()) ? papeisMoeda[--trocoIteratorCount] : null;
          }
 
         @Override

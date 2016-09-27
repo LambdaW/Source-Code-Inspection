@@ -36,13 +36,14 @@ public class TicketMachine {
     public void inserir(int quantia) throws PapelMoedaInvalidaException, SaldoInsuficienteException {
         boolean achou = false;
         for (int i = 0; i < papelMoeda.length && !achou; i++) {
+            
             if (papelMoeda[i] == quantia) {
                 achou = true;
             }
         }
        
         this.saldo += quantia;
-                saldo -= valor;
+        this.saldo -= valor;
 
         verificarSaldo(achou);
     }
