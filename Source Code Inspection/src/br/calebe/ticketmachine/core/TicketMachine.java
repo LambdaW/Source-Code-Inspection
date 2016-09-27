@@ -24,10 +24,11 @@ public class TicketMachine {
         if(saldo < valor ) 
             throw new SaldoInsuficienteException("Prezado usuário, você não possui saldo"
                     + " suficiente para a compra do ticket./nValor do Ticket: "+this.valor+
-                    "Valor do seu saldo: "+this.saldo );
+                    "\nValor do seu saldo: "+this.saldo );
         
         else if(!achou)
-            throw new PapelMoedaInvalidaException();
+            throw new PapelMoedaInvalidaException("Prezado usuário, você inseriu um Valor de Moeda Inválido"
+                    + "\nTente novamente com os seguintes valores: 2,5,10,20,50,100.");
         else 
             imprimir();
     }
