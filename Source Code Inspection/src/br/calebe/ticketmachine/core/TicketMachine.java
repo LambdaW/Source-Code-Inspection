@@ -22,7 +22,10 @@ public class TicketMachine {
     public void verificarSaldo(boolean achou) throws SaldoInsuficienteException, PapelMoedaInvalidaException{
         
         if(saldo < valor ) 
-            throw new SaldoInsuficienteException();
+            throw new SaldoInsuficienteException("Prezado usuário, você não possui saldo"
+                    + " suficiente para a compra do ticket./nValor do Ticket: "+this.valor+
+                    "Valor do seu saldo: "+this.saldo );
+        
         else if(!achou)
             throw new PapelMoedaInvalidaException();
         else 
