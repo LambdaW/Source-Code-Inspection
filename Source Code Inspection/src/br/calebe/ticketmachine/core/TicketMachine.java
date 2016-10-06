@@ -19,14 +19,9 @@ public class TicketMachine {
         this.saldo = 0;
     }
 
-    public void verificarSaldo(boolean achou) throws SaldoInsuficienteException, PapelMoedaInvalidaException{
+    public void verificarSaldo(boolean achou) throws  PapelMoedaInvalidaException{
         
-        if(saldo < valor ) 
-            throw new SaldoInsuficienteException("Prezado usuário, você não possui saldo"
-                    + " suficiente para a compra do ticket./nValor do Ticket: "+this.valor+
-                    "\nValor do seu saldo: "+this.saldo );
-        
-        else if(!achou)
+        if(!achou)
             throw new PapelMoedaInvalidaException("Prezado usuário, você inseriu um Valor de Moeda Inválido"
                     + "\nTente novamente com os seguintes valores: 2,5,10,20,50,100.");
         else 
@@ -39,13 +34,25 @@ public class TicketMachine {
             
             if (papelMoeda[i] == quantia) {
                 achou = true;
+                this.saldo += quantia;
             }
         }
        
-        this.saldo += quantia;
-        this.saldo -= valor;
-
         verificarSaldo(achou);
+    }
+    
+    public void retirarTicket() throws SaldoInsuficienteException{
+        
+        if(saldo >= valor){
+            saldo-=valor;
+            //imprime ticket
+ 
+        }else{
+            throw new SaldoInsuficienteException("Prezado usuário, você não possui saldo"
+                    + " suficiente para a compra do ticket./nValor do Ticket: "+this.valor+
+                    "\nValor do seu saldo: "+this.saldo );
+        }
+            
     }
 
     public int getSaldo() {
@@ -57,7 +64,7 @@ public class TicketMachine {
     }
 
     public String imprimir() {
-        StringBuilder result = new StringBuilder( "*****************\n");
+        StringBuilder result = new StringBuilder("*****************\n");
         result.append( "*** R$ ").append(saldo).append(",00 ****\n");
         result.append( "*****************\n");
         return result.toString();
