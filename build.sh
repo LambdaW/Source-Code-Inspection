@@ -1,8 +1,8 @@
 #!/bin/bash
 
 _PWD=`pwd`
-CopyLibs=/Users/pardim/Documents/new_project/Source-Code-Inspection/lib/org-netbeans-modules-java-j2seproject-copylibstask.jar
-
+CopyLibs=$_PWD/lib/org-netbeans-modules-java-j2seproject-copylibstask.jar
+echo $CopyLibs
 CLASSPATH=$CLASSPATH:$CopyLibs:
 export CLASSPATH
 echo "CLASSPATH:"$CLASSPATH
