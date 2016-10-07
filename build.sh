@@ -32,3 +32,5 @@ for i in * ; do
     cd ..
   fi
 done
+
+
