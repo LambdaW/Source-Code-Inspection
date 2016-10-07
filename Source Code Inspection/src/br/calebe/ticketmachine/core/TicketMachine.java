@@ -46,6 +46,8 @@ public class TicketMachine {
         if(saldo >= valor){
             saldo-=valor;
             //imprime ticket
+            //mostra saldo atual
+            imprimir();
  
         }else{
             throw new SaldoInsuficienteException("Prezado usuário, você não possui saldo"
@@ -54,14 +56,35 @@ public class TicketMachine {
         }
             
     }
+    
+    public int getValor(){
+        return this.valor;
+    }
 
     public int getSaldo() {
         return saldo;
     }
 
-    public Iterator<PapelMoeda> getTroco() {
-        return new Troco(saldo).getIterator();
+    public String  getTroco() {
+        
+        Iterator<PapelMoeda> iterator_troco =  new Troco(saldo).getIterator();
+        
+        StringBuilder troco_msg = new StringBuilder("Seu troco será:\n  ");
+       
+        while(iterator_troco.hasNext()){
+            PapelMoeda pm;
+            pm = iterator_troco.next();
+            troco_msg.append("\nCédula de ").append(pm.getValor()).append(", quantidade:").append(pm.getQuantidade());
+            
+        }
+        
+        this.saldo=0;
+ 
+        //zera saldo do cliente, e retorna o troco
+        return troco_msg.toString();
     }
+    
+  
 
     public String imprimir() {
         StringBuilder result = new StringBuilder("*****************\n");
@@ -69,4 +92,11 @@ public class TicketMachine {
         result.append( "*****************\n");
         return result.toString();
     }
+    
+    
+    public void setValor(int valor){
+        this.valor = valor;
+    }
 }
+    
+

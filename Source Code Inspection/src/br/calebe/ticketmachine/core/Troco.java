@@ -1,12 +1,13 @@
 package br.calebe.ticketmachine.core;
 
+
 import java.util.Iterator;
 
 /**
  *
  * @author Calebe de Paula Bianchini
  */
-class Troco {
+ class Troco {
     
     protected PapelMoeda[] papeisMoeda;
 
@@ -16,11 +17,10 @@ class Troco {
         int[] moedas = {2, 5, 10, 20, 50, 100};
         papeisMoeda = new PapelMoeda[moedas.length];
         
-        for(int i = moedas.length - 1; i != -1;) {
+        for(int i = moedas.length - 1; i != -1;i--) {
             int count = valor / moedas[i];
             valor %= moedas[i];
-            papeisMoeda[i--] = new PapelMoeda(moedas[i], count);
-
+            papeisMoeda[i] = new PapelMoeda(moedas[i], count);
         }
         
     }
@@ -39,12 +39,12 @@ class Troco {
 
         @Override
         public boolean hasNext() {
-           return trocoIteratorCount > 0;
+           return trocoIteratorCount >= 0;
         }
 
         @Override
         public PapelMoeda next() {
-            return (hasNext()) ? papeisMoeda[--trocoIteratorCount] : null;
+            return (hasNext()) ? papeisMoeda[trocoIteratorCount--] : null;
          }
 
         @Override
