@@ -22,6 +22,13 @@
     <pathelement location="${main.build.dir}"/>
     <path refid="classpath.base" />
   </path>
+
+  <target name="compile">
+    <mkdir dir="${main.build.dir}"/>
+    <javac srcdir="${main.src.dir}" destdir="${main.build.dir}" includeantruntime="false">
+      <classpath refid="classpath.base"/>
+    </javac>
+  </target>
     <!--
 
     There exist several targets which are by default empty and which can be 
