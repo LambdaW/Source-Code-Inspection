@@ -8,7 +8,7 @@
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
 <project name="Source_Code_Inspection" default="default" basedir=".">
-    <description>Builds, tests, and runs the project Source Code Inspection.</description>
+<description>Builds, tests, and runs the project Source Code Inspection.</description>
  <import file="nbproject/build-impl.xml"/>
 
 
