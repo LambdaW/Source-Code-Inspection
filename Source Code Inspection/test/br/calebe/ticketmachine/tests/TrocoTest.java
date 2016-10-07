@@ -5,11 +5,9 @@
  */
 package br.calebe.ticketmachine.tests;
 
-import br.calebe.ticketmachine.core.PapelMoeda;
 import br.calebe.ticketmachine.core.TicketMachine;
 import br.calebe.ticketmachine.exception.PapelMoedaInvalidaException;
 import br.calebe.ticketmachine.exception.SaldoInsuficienteException;
-import java.util.Iterator;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
