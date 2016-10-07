@@ -3,7 +3,7 @@ before-script: "chmod +x ./build.sh"
 script : "./build.sh"
 jdk:
 - oraclejdk8
-- oraclejd7
+- oraclejdk7
 - openjdk6
 
 
