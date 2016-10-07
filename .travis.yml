@@ -1,5 +1,6 @@
 language: java
-script:"ant"
+before-script: "chmod +x ./build.sh"
+script : "./build.sh"
 
 
 
